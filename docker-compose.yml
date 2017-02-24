@@ -1,0 +1,14 @@
+version: "3"
+services:
+  jackett:
+    restart: always
+    image: linuxserver/jackett
+    ports:
+      - "19117:9117"
+    volumes:
+      - "/mnt/jackett/config:/config"
+      - "/mnt/jackett/torrentfiles:/downloads"
+    environment:
+      - "PGID=65533"
+      - "PUID=65534"
+      - "TZ=Asia/Shanghai"
